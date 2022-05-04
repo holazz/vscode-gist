@@ -1,0 +1,56 @@
+{
+  "name": "name",
+  "displayName": "My Extension",
+  "version": "0.0.0",
+  "publisher": "holazz",
+  "packageManager": "pnpm@7.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/holazz/[name]#readme",
+  "bugs": {
+    "url": "https://github.com/holazz/[name]/issues"
+  },
+  "license": "MIT",
+  "author": "zz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holazz/[name]"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "icon": "res/icon.png",
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "pnpm build --watch",
+    "lint": "eslint .",
+    "vscode:prepublish": "pnpm build",
+    "publish": "vsce publish --no-dependencies --allow-star-activation",
+    "pack": "vsce package --no-dependencies --allow-star-activation",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp --commit --push --tag && pnpm publish"
+  },
+  "devDependencies": {
+    "@holazz/eslint-config": "^1.0.4",
+    "@types/node": "^17.0.31",
+    "@types/vscode": "^1.66.0",
+    "bumpp": "^7.1.1",
+    "eslint": "^8.14.0",
+    "tsup": "^5.12.6",
+    "typescript": "^4.6.4",
+    "vitest": "^0.10.2",
+    "vsce": "^2.7.0"
+  }
+}
